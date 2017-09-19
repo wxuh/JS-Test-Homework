@@ -1,0 +1,27 @@
+{
+  "name": "js-test-homework",
+  "version": "1.0.0",
+  "description": "homework",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxuh/JS-Test-Homework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wxuh/JS-Test-Homework/issues"
+  },
+  "homepage": "https://github.com/wxuh/JS-Test-Homework#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3"
+  },
+  "dependencies": {}
+}
