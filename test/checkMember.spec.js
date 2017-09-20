@@ -24,7 +24,7 @@ describe('shoppingCart',() => {
             var actual = 1000;
             var shoppingCart = new ShoppingCart();
 
-            actual = shoppingCart.checkItemNumber(member);
+            actual = shoppingCart.checkItemsMinPrice(member);
             
             actual.should.equal(expected);
         });
@@ -34,7 +34,7 @@ describe('shoppingCart',() => {
             var actual = 500;
             var shoppingCart = new ShoppingCart();
 
-            actual = shoppingCart.checkItemNumber(member);
+            actual = shoppingCart.checkItemsMinPrice(member);
             
             actual.should.equal(expected);
         });
@@ -44,7 +44,7 @@ describe('shoppingCart',() => {
             var actual = 500;
             var shoppingCart = new ShoppingCart();
 
-            actual = shoppingCart.checkItemNumber(member);
+            actual = shoppingCart.checkItemsMinPrice(member);
             
             actual.should.equal(expected);
         });

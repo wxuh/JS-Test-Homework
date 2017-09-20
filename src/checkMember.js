@@ -7,7 +7,7 @@ shoppingCart.prototype.checkMember = function(member){
     }
     return false;
 }
-shoppingCart.prototype.checkItemNumber = function(member){
+shoppingCart.prototype.checkItemsMinPrice = function(member){
     if(member.membership == 1 && member.itemNumber > 3){
         return 1000; 
     }
@@ -17,7 +17,7 @@ shoppingCart.prototype.checkItemNumber = function(member){
     return false;
 }
 shoppingCart.prototype.checkPrice = function(member){
-    var havePrice = this.checkItemNumber(member);
+    var havePrice = this.checkItemsMinPrice(member);
     if(havePrice){
         member.totalPrice >= havePrice;
         return true;
@@ -25,9 +25,18 @@ shoppingCart.prototype.checkPrice = function(member){
     return false;
 }
 shoppingCart.prototype.getDiscount = function(member){
-    var haveDiscount = this.checkPrice(member);
+    var $this = this;
+    var haveDiscount = $this.checkPrice(member);
     if(haveDiscount){
-        return 0.85;
+        var checkItemsMinPrice = $this.checkItemsMinPrice(member);
+        var checkGetDiscount = member.totalPrice >= checkItemsMinPrice;
+        if(checkGetDiscount){
+            if(member.membership == 1){
+                return 0.85;
+            }else if(member.membership == 2 ){
+                return 0.8;
+            }
+        }
     }
     return 1;
 }
