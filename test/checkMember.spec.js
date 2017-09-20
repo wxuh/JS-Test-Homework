@@ -58,5 +58,15 @@ describe('shoppingCart',() => {
             
             actual.should.equal(expected);
         });
+        it('VIP會員只要總價滿500就有折扣',() => {
+            var member = {membership:2,itemNumber:1,totalPrice: 500};
+            var expected = 0.8;
+            var actual = 0.8;
+            var shoppingCart = new ShoppingCart();
+
+            actual = shoppingCart.getDiscount(member);
+            
+            actual.should.equal(expected);
+        });
     });
 });
