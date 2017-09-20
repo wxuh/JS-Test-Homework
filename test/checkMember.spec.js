@@ -28,5 +28,15 @@ describe('shoppingCart',() => {
             
             actual.should.equal(expected);
         });
+        it('如果為VIP會員，購入商品為一件就有可能有折扣',() => {
+            var member = {membership:2,itemNumber:1};
+            var expected = 500;
+            var actual = 500;
+            var shoppingCart = new ShoppingCart();
+
+            actual = shoppingCart.checkItemNumber(member);
+            
+            actual.should.equal(expected);
+        });
     });
 });
