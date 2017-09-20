@@ -16,6 +16,21 @@ shoppingCart.prototype.checkItemNumber = function(member){
     }
     return false;
 }
+shoppingCart.prototype.checkPrice = function(member){
+    var havePrice = this.checkItemNumber(member);
+    if(havePrice){
+        member.totalPrice >= havePrice;
+        return true;
+    }
+    return false;
+}
+shoppingCart.prototype.getDiscount = function(member){
+    var haveDiscount = this.checkPrice(member);
+    if(haveDiscount){
+        return 0.85;
+    }
+    return 1;
+}
 
 
 module.exports = shoppingCart;
