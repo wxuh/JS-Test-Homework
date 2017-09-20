@@ -38,5 +38,25 @@ describe('shoppingCart',() => {
             
             actual.should.equal(expected);
         });
+        it('如果為VIP會員，購入商品為一件就有可能有折扣',() => {
+            var member = {membership:2,itemNumber:1};
+            var expected = 500;
+            var actual = 500;
+            var shoppingCart = new ShoppingCart();
+
+            actual = shoppingCart.checkItemNumber(member);
+            
+            actual.should.equal(expected);
+        });
+        it('一般會員需要超過三件商品且總價超過1000才有折扣',() => {
+            var member = {membership:1,itemNumber:4,totalPrice: 1000};
+            var expected = 0.85;
+            var actual = 0.85;
+            var shoppingCart = new ShoppingCart();
+
+            actual = shoppingCart.getDiscount(member);
+            
+            actual.should.equal(expected);
+        });
     });
 });
